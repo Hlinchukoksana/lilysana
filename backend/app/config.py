@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     BOT_TOKEN: str = "test_token"
     SECRET_KEY: str = "dev_secret_key_change_in_production"
     DATABASE_URL: str = "sqlite+aiosqlite:///./lilysana.db"
-    MINI_APP_URL: str = "http://localhost:3000"
+    MINI_APP_URL: str = "https://lilysana.onrender.com"
     HOST: str = "0.0.0.0"
     PORT: int = 8000
     DEV_MODE: bool = False
