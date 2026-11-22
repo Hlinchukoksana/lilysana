@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Lilysana Education — твій розумний помічник для підготовки до НМТ та проходження освітніх курсів" />
+  <title>Lilysana Education 🌸</title>
+
+  <!-- Telegram Web App SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Welcome overlay (shown only on first Mini App open) -->
+  <div id="welcome-overlay" class="welcome-overlay hidden">
+    <div class="welcome-card">
+      <div class="welcome-emoji">🌸</div>
+      <h1 class="welcome-title">Вітаємо в Lilysana 2.0!</h1>
+      <p class="welcome-text">
+        Це друга тестова версія нашого освітнього помічника.<br><br>
+        Тут ти можеш готуватися до НМТ, проходити цікаві освітні курси та відстежувати власний прогрес.<br><br>
+        Lilysana допоможе розподілити навчання за датами відповідно до твого вільного часу, дедлайнів і побажань.<br><br>
+        <strong>Навчайся у власному темпі. Ми допоможемо з організацією!</strong>
+      </p>
+      <button id="welcome-start-btn" class="btn btn-primary btn-lg">
+        Розпочати навчання ✨
+      </button>
+    </div>
+  </div>
+
+  <!-- Module selection (shown if no modules active) -->
+  <div id="module-select-overlay" class="welcome-overlay hidden">
+    <div class="welcome-card">
+      <div class="welcome-emoji">📚</div>
+      <h2 class="welcome-title">Що будемо вивчати?</h2>
+      <p class="welcome-text">Обери один або обидва модулі. Це можна змінити пізніше в Налаштуваннях.</p>
+      <div class="module-choices">
+        <label class="module-choice-card" id="module-nmt-label">
+          <input type="checkbox" id="module-nmt-cb" value="nmt" />
+          <div class="module-choice-icon">🎯</div>
+          <div class="module-choice-text">
+            <strong>НМТ</strong>
+            <span>Підготовка до НМТ з темами і тестами</span>
+          </div>
+        </label>
+        <label class="module-choice-card" id="module-courses-label">
+          <input type="checkbox" id="module-courses-cb" value="courses" />
+          <div class="module-choice-icon">🎓</div>
+          <div class="module-choice-text">
+            <strong>Мої курси</strong>
+            <span>Prometheus, Coursera та інші</span>
+          </div>
+        </label>
+      </div>
+      <button id="module-select-btn" class="btn btn-primary btn-lg">Продовжити</button>
+    </div>
+  </div>
+
+  <!-- Main App Shell -->
+  <div id="app" class="app-shell hidden">
+    <!-- Page content renders here -->
+    <main id="page-content" class="page-content"></main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" id="bottom-nav">
+      <button class="nav-item active" data-page="home" aria-label="Головна">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Головна</span>
+      </button>
+      <button class="nav-item" data-page="nmt" aria-label="НМТ" id="nav-nmt">
+        <span class="nav-icon">🎯</span>
+        <span class="nav-label">НМТ</span>
+      </button>
+      <button class="nav-item" data-page="courses" aria-label="Курси" id="nav-courses">
+        <span class="nav-icon">🎓</span>
+        <span class="nav-label">Курси</span>
+      </button>
+      <button class="nav-item" data-page="schedule" aria-label="Розклад">
+        <span class="nav-icon">📅</span>
+        <span class="nav-label">Розклад</span>
+      </button>
+      <button class="nav-item" data-page="statistics" aria-label="Статистика">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Статистика</span>
+      </button>
+      <button class="nav-item" data-page="settings" aria-label="Налаштування">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Налаштування</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Loading state -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-logo">🌸</div>
+    <div class="loading-text">Lilysana Education</div>
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Toast notifications -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Modal -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div id="modal-box" class="modal-box">
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/components/progressBar.js"></script>
+  <script src="js/components/chart.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/pages/home.js"></script>
+  <script src="js/pages/nmt.js"></script>
+  <script src="js/pages/courses.js"></script>
+  <script src="js/pages/schedule.js"></script>
+  <script src="js/pages/statistics.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
