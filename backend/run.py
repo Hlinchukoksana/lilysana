@@ -2,6 +2,7 @@
 Unified launcher: starts both Aiogram bot (polling) and FastAPI (uvicorn) concurrently.
 """
 import asyncio
+import os
 import logging
 import uvicorn
 from aiogram import Bot, Dispatcher
@@ -42,10 +43,12 @@ async def run_bot(bot: Bot):
 
 
 async def run_api():
+    port = int(os.environ.get("PORT", settings.PORT))
+    logger.info(f"🌐 Starting Uvicorn API server on 0.0.0.0:{port}")
     config = uvicorn.Config(
         app=app,
-        host=settings.HOST,
-        port=settings.PORT,
+        host="0.0.0.0",
+        port=port,
         log_level="info",
     )
     server = uvicorn.Server(config)
